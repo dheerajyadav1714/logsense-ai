@@ -125,7 +125,7 @@ curl -X POST https://logsense-api-xxx.asia-south1.run.app/run \
 You can also interact with the agent via the ADK Web UI at:
 `https://logsense-api-xxx.asia-south1.run.app/dev-ui/?app=logsense_ai`
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/49e826f4-16c5-432e-86ab-4524a9308351" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c40271d-1cfe-47a4-b457-79af6980367f" />
 
 
 ## 🧠 AI Prompt Design
