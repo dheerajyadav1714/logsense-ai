@@ -152,4 +152,3 @@ Avoid:
 ## 📝 License
 
 This project is for demonstration purposes as part of the Gen AI Academy submission.
-```
