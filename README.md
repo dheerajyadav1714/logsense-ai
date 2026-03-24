@@ -1,16 +1,3 @@
-You're correct that the final deployed solution **does not use** `main.py` (the custom FastAPI file). Instead, the ADK deployment generates its own server automatically. Therefore, the project structure in your repository should **only** include:
-
-- `agent.py` – the agent definition with `root_agent`
-- `.env` – optional environment variables
-- `.gitignore`
-- `README.md`
-
-If you still have a `main.py` in your repository, it would be leftover from earlier experiments and should be removed. Below is the **final README** that correctly reflects the actual deployed code.
-
----
-
-## 📄 Final README.md (for your repository)
-
 ```markdown
 # LogSense AI – DevOps Log Analysis Agent
 
