@@ -105,7 +105,7 @@ A JSON array of events. The final event contains the analysis in `content.parts[
 **Example curl** (creates a new session automatically):
 ```bash
 SESSION_ID=$(python -c "import uuid; print(uuid.uuid4())")
-curl -X POST https://logsense-api-688623456290.asia-south1.run.app/run \
+curl -X POST https://logsense-api-xxx.asia-south1.run.app/run \
   -H "Content-Type: application/json" \
   -d '{
     "appName": "logsense_ai",
@@ -123,7 +123,10 @@ curl -X POST https://logsense-api-688623456290.asia-south1.run.app/run \
 ## 🖥️ Web UI
 
 You can also interact with the agent via the ADK Web UI at:
-`https://logsense-api-688623456290.asia-south1.run.app/dev-ui/?app=logsense_ai`
+`https://logsense-api-xxx.asia-south1.run.app/dev-ui/?app=logsense_ai`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/49e826f4-16c5-432e-86ab-4524a9308351" />
+
 
 ## 🧠 AI Prompt Design
 
