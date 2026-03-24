@@ -21,17 +21,16 @@ LogSense AI is an intelligent DevOps assistant that automates CI/CD log analysis
 
 ## 📦 Project Structure
 
-text
+[TO-DO]
 
 ## 🔧 Setup (Local Development)
 
 1. **Clone the repository**
-   ```bash
    git clone https://github.com/dheerajyadav1714/logsense-ai.git
    cd logsense-ai
+   
 Install dependencies
 
-bash
 pip install google-adk google-cloud-aiplatform python-dotenv
 Set up environment variables
 Create a .env file with:
