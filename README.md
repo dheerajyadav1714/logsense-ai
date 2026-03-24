@@ -1,3 +1,17 @@
+You're correct that the final deployed solution **does not use** `main.py` (the custom FastAPI file). Instead, the ADK deployment generates its own server automatically. Therefore, the project structure in your repository should **only** include:
+
+- `agent.py` – the agent definition with `root_agent`
+- `.env` – optional environment variables
+- `.gitignore`
+- `README.md`
+
+If you still have a `main.py` in your repository, it would be leftover from earlier experiments and should be removed. Below is the **final README** that correctly reflects the actual deployed code.
+
+---
+
+## 📄 Final README.md (for your repository)
+
+```markdown
 # LogSense AI – DevOps Log Analysis Agent
 
 LogSense AI is an intelligent DevOps assistant that automates CI/CD log analysis. It uses Google ADK and Gemini 2.5 Flash to transform raw logs into a clear summary, root cause, and actionable fix suggestions.
@@ -21,34 +35,48 @@ LogSense AI is an intelligent DevOps assistant that automates CI/CD log analysis
 
 ## 📦 Project Structure
 
-[TO-DO]
+```
+.
+├── agent.py                # ADK agent definition (root_agent)
+├── .env                    # (optional) environment variables
+├── .gitignore
+└── README.md
+```
+
+**Note:** This project uses the ADK’s built‑in web server; no custom `main.py` is required.
 
 ## 🔧 Setup (Local Development)
 
 1. **Clone the repository**
+   ```bash
    git clone https://github.com/dheerajyadav1714/logsense-ai.git
    cd logsense-ai
-   
-Install dependencies
+   ```
 
-pip install google-adk google-cloud-aiplatform python-dotenv
-Set up environment variables
-Create a .env file with:
+2. **Install dependencies**
+   ```bash
+   pip install google-adk google-cloud-aiplatform python-dotenv
+   ```
 
-text
-PROJECT_ID=your-gcp-project-id
-LOCATION=asia-south1
-MODEL=gemini-2.5-flash
-Run the ADK web server locally
+3. **Set up environment variables**  
+   Create a `.env` file with:
+   ```
+   PROJECT_ID=your-gcp-project-id
+   LOCATION=asia-south1
+   MODEL=gemini-2.5-flash
+   ```
 
-bash
-adk web .
-Then open http://localhost:8000 in your browser.
+4. **Run the ADK web server locally**
+   ```bash
+   adk web .
+   ```
+   Then open `http://localhost:8000` in your browser.
 
-☁️ Deployment to Cloud Run
-Use the ADK CLI to deploy (ensure you are authenticated with gcloud):
+## ☁️ Deployment to Cloud Run
 
-bash
+Use the ADK CLI to deploy (ensure you are authenticated with `gcloud`):
+
+```bash
 adk deploy cloud_run \
   --project=$PROJECT_ID \
   --region=asia-south1 \
@@ -57,14 +85,16 @@ adk deploy cloud_run \
   . \
   -- \
   --allow-unauthenticated
-After deployment, you'll get a URL like https://logsense-api-xxxxxx-uc.a.run.app.
+```
 
-📡 API Usage
-Endpoint: POST /run
+After deployment, you'll get a URL like `https://logsense-api-xxxxxx-uc.a.run.app`.
 
-Request body (JSON):
+## 📡 API Usage
 
-json
+**Endpoint:** `POST /run`
+
+**Request body (JSON):**
+```json
 {
   "appName": "logsense_ai",
   "userId": "user",
@@ -76,14 +106,15 @@ json
   "stateDelta": null,
   "streaming": false
 }
-Response:
-A JSON array of events. The final event contains the analysis in content.parts[0].text.
+```
 
-Example curl (creates a new session automatically):
+**Response:**  
+A JSON array of events. The final event contains the analysis in `content.parts[0].text`.
 
-bash
+**Example curl** (creates a new session automatically):
+```bash
 SESSION_ID=$(python -c "import uuid; print(uuid.uuid4())")
-curl -X POST https://logsense-api-xxx.asia-south1.run.app/run \
+curl -X POST https://logsense-api-688623456290.asia-south1.run.app/run \
   -H "Content-Type: application/json" \
   -d '{
     "appName": "logsense_ai",
@@ -96,17 +127,18 @@ curl -X POST https://logsense-api-xxx.asia-south1.run.app/run \
     "stateDelta": null,
     "streaming": false
   }'
-🖥️ Web UI
+```
+
+## 🖥️ Web UI
+
 You can also interact with the agent via the ADK Web UI at:
-https://logsense-api-xxx.asia-south1.run.app/dev-ui/?app=logsense_ai
+`https://logsense-api-688623456290.asia-south1.run.app/dev-ui/?app=logsense_ai`
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/050f9b70-0812-4217-819e-b375168b86e8" />
+## 🧠 AI Prompt Design
 
-
-🧠 AI Prompt Design
 The core intelligence is driven by a specialized prompt:
 
-text
+```
 You are a Senior DevOps Engineer.
 
 Analyze CI/CD pipeline logs and provide:
@@ -124,7 +156,9 @@ Focus on:
 Avoid:
 - Generic explanations
 - Irrelevant details
-  
-📝 License
-This project is for demonstration purposes as part of the Gen AI Academy submission.
+```
 
+## 📝 License
+
+This project is for demonstration purposes as part of the Gen AI Academy submission.
+```
