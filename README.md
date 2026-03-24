@@ -20,11 +20,6 @@ LogSense AI is an intelligent DevOps assistant that automates CI/CD log analysis
 - **Container:** Docker (managed by ADK CLI)
 
 ## 📦 Project Structure
-.
-├── agent.py # ADK agent definition (root_agent)
-├── .env # (optional) environment variables
-├── .gitignore
-└── README.md
 
 text
 
