@@ -18,7 +18,7 @@ def home():
 @app.post("/analyze")
 async def analyze_log(request: LogRequest):
     try:
-        response = logsense_agent.run(request.log)
+        response = logsense_agent.invoke(request.log)
 
         return {
             "status": "success",
